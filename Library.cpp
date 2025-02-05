@@ -9,7 +9,7 @@ int main()
     int *bookNumber = new int[size];
     *bookNumber= {1};
     string *bookTitle = new string[size];
-    *bookTitle = { "" };
+    *bookTitle = { " " };
     string *bookAuthor = new string[size];
-    *bookAuthor = { "" };
+    *bookAuthor = { " " };
 }
