@@ -9,6 +9,7 @@ void updateBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& siz
 void removeBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size);
 void borrowBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size);
 void returnBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size);
+void dashBoard(int* bookNumber, string* bookTitle, string* bookAuthor, int &size);
 
 int main()
 {   
@@ -21,6 +22,8 @@ int main()
     *bookTitle = { " " };
     string *bookAuthor = new string[size];
     *bookAuthor = { " " };
+
+    dashBoard(bookNumber, bookTitle, bookAuthor, size);
 }
 void addBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size)
 {  
@@ -153,6 +156,52 @@ void returnBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size
         if(bookTitle[i] == title)
         {
             bookNumber[i] = i+1;
+        }
+    }
+}
+void dashBoard(int* bookNumber, string* bookTitle, string* bookAuthor, int& size)
+{   
+    char key; 
+    while(key != 'Q')
+    {
+        cout << "please select from the list below\n"<< 
+        "to add a book press 'A' \n"
+        "to print the data base press 'P' \n"
+        "to Delete a book press 'D' \n"
+        "to borrow a book press 'B' \n"
+        "to Return a book press 'R' \n"
+        "to update a book press 'U' \n"
+        "to update the nunber of books 'S' \n"
+        "to quit press 'Q' \n"; ; 
+
+        cin >> key; 
+        key = toupper(key);
+            
+        switch(key)
+        {
+            case 'A' :
+                addBook(bookNumber,bookTitle, bookAuthor,size);
+                break;
+            case 'P' :
+                printDataBase(bookNumber,bookTitle, bookAuthor,size);
+                break;
+            case 'D' :
+                removeBook(bookNumber,bookTitle, bookAuthor,size);
+                break;
+            case 'B' :
+                borrowBook( bookNumber, bookTitle, bookAuthor, size);
+                break;
+            case 'R' :
+               returnBook(bookNumber,bookTitle, bookAuthor,size);
+                break;
+            case 'U' :
+                updateBook(bookNumber,bookTitle, bookAuthor,size);
+                break;
+            case 'Q' :
+                break;
+            default:
+                cout<< "please enter a correct choice\n";
+                return dashBoard(bookNumber,bookTitle, bookAuthor,size);
         }
     }
 }
