@@ -5,7 +5,7 @@ using namespace std;
 
 void addBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
 void printDataBase(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
-
+void updateBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
 int main()
 {   
     int size ;
@@ -48,4 +48,43 @@ void printDataBase(int* bookNumber, string* bookTitle, string* bookAuthor, int& 
         cout << bookNumber[i] << " " <<  bookTitle[i] << " " << bookAuthor[i] << endl;
     }
     
+}
+void updateBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& size)
+{   
+    int id, new_id;
+    char letter;
+    string newTitle ,newAuthor;
+   
+    cout << "please enter the id of the book you want to update\n";
+    cin >> id;
+    
+    for (int i = 0; i < size; i++)
+    {   
+
+        if(bookNumber[i] == id)
+        {   
+            cout << "choose what do you want to ubdate in book no. " << bookNumber[i] << endl<< "for id press 'i'"
+            << endl << "for title press 't'" << endl<< "for author press 'a' ";
+            cin >> letter;
+
+            if(letter == 'i')
+            {
+                cout << "enter the new id ";
+                cin >> new_id;
+                bookNumber[i] = new_id;
+            }
+            else if(letter =='t')
+            {
+                cout << "enter the new title ";
+                cin >> newTitle;
+                bookTitle[i] = newTitle;
+            }
+            else 
+            {
+                cout << "enter the new author ";
+                cin >> newAuthor;
+                bookAuthor[i] = newTitle;
+            }
+        }
+    }
 }
