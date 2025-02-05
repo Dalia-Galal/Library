@@ -7,6 +7,7 @@ void addBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
 void printDataBase(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
 void updateBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
 void removeBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size);
+void borrowBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size);
 
 int main()
 {   
@@ -105,4 +106,41 @@ void removeBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size
             bookAuthor[i]="";
         }
     }
+}
+ void borrowBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size)
+{
+    int id; 
+  
+    bool isAvailable=false;
+    cout << "please enter the id of the book you want to borrow\n";
+    cin >> id;
+  
+    for (int i = 0; i < size; i++)
+    { 
+        if(id == bookNumber[i]  && bookNumber[i] != 0)
+        {   isAvailable =true;
+            bookNumber[i] = 0;
+            break;
+        }
+        else
+        {
+            isAvailable=false;
+        }
+    }
+    if(isAvailable)
+    {
+        cout << "=======================================\n";
+        cout << "book is available ,you now borrowed it \n";
+        cout << "=======================================\n";
+    }
+        
+   else 
+   {
+     cout << "=======================================\n";
+     cout << "book is not available, you can't boorrow \n";
+     cout << "=======================================\n";
+   }
+    
+       
+    
 }
