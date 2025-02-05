@@ -6,6 +6,8 @@ using namespace std;
 void addBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
 void printDataBase(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
 void updateBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
+void removeBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size);
+
 int main()
 {   
     int size ;
@@ -85,6 +87,22 @@ void updateBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& siz
                 cin >> newAuthor;
                 bookAuthor[i] = newTitle;
             }
+        }
+    }
+}
+void removeBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size)
+{
+    int id;
+   
+    cout << "please enter the id of the book you want to remove\n";
+    cin >> id;
+    for (int i = 0; i < size; i++)
+    { 
+        if(bookNumber[i] == id)
+        {
+            bookNumber[i] = 0;
+            bookTitle[i] = "";
+            bookAuthor[i]="";
         }
     }
 }
