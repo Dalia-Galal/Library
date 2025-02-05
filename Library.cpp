@@ -4,6 +4,8 @@
 using namespace std;
 
 void addBook(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
+void printDataBase(int* bookNumber, string* bookTitle, string* bookAuthor, int& size);
+
 int main()
 {   
     int size ;
@@ -37,4 +39,13 @@ void addBook(int* bookNumber, string* bookTitle, string* bookAuthor,int &size)
         getline(cin,bookTitle[i],'\n');
         getline(cin,bookAuthor[i],'\n');
     }
+    
+}
+void printDataBase(int* bookNumber, string* bookTitle, string* bookAuthor, int& size)
+{   
+    for (int i = 0;i < size;i++)
+    {
+        cout << bookNumber[i] << " " <<  bookTitle[i] << " " << bookAuthor[i] << endl;
+    }
+    
 }
